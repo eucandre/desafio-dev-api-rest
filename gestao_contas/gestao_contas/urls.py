@@ -1,9 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from contas.views import *
+from transacoes.views import TransacaoList
+from pessoas.views import PessoasList
 
 urlpatterns = [
-    path('contas',include('contas.urls')),
-    path('pessoas',include('pessoas.urls')),
-    path('transacoes',include('transacoes.urls')),
+    path('', include('contas.urls')),
+
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
+
 ]
